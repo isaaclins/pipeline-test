@@ -1,0 +1,38 @@
+name: Update Changelog
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    update-changelog:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v2
+
+          - name: Get commit history
+            run: |
+              git log --pretty=format:"## %ad%n%h %s" --date=iso > commit_history.txt
+
+          - name: Sort commits by date
+            run: |
+              awk 'BEGIN { RS=""; FS="\n" } { print $0 | "sort -r" }' commit_history.txt > sorted_commits.txt
+
+          - name: Insert sorted commits into changelog
+            run: |
+              head -n 10 changelog.md > temp_changelog.md
+              echo "" >> temp_changelog.md
+              cat sorted_commits.txt >> temp_changelog.md
+              tail -n +11 changelog.md >> temp_changelog.md
+              mv temp_changelog.md changelog.md
+
+          - name: Commit and push changes
+            run: |
+              git config --global user.name 'github-actions[bot]'
+              git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+              git add changelog.md
+              git commit -m "Update changelog with latest commits"
+              git push
