@@ -15,7 +15,7 @@ jobs:
 
           - name: Get commit history
             run: |
-              git log --pretty=format:"## %ad%n%h %s" --date=iso > commit_history.txt
+              git log --pretty=format:"## %ad%n%s %h" --date=iso > commit_history.txt
 
           - name: Sort commits by date
             run: |
