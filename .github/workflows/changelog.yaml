@@ -18,10 +18,10 @@ jobs:
           # Format the git log to output commits with the date first, followed by the commit hash and message
           git log --pretty=format:"## %ad%n%h %s" --date=iso > commit_history.txt
 
-      - name: Sort commits by date
+      - name: Sort commits by date (descending)
         run: |
-          # Sort the commits by date in reverse order
-          awk 'BEGIN { RS=""; FS="\n" } { print $0 | "sort -r" }' commit_history.txt > sorted_commits.txt
+          # Sort commits by date in reverse order
+          sort -r commit_history.txt > sorted_commits.txt
 
       - name: Insert sorted commits into readme
         run: |
