@@ -16,7 +16,7 @@ jobs:
       - name: Get commit history
         run: |
           # Format the git log to output commits with the date first, followed by the commit hash and message
-          git log --pretty=format:"%ad %h %s" --date=iso > commit_history.txt
+          git log --pretty=format:"## %ad%n%h %s" --date=iso > commit_history.txt
 
       - name: Sort commits by date
         run: |
