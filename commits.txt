@@ -1,0 +1,48 @@
+## 2024-12-18 16:28:40 +0100
+1455e78 Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:28:37 +0100
+50da1a9 Merge branch
+## 2024-12-18 15:23:55 +0000
+413fae9 Update readme with latest commits
+## 2024-12-18 16:23:38 +0100
+de2f6c9 Test commit for workflow
+## 2024-12-18 16:23:06 +0100
+9979fd6 Entferne veraltete Merge-Referenzen aus der Readme-Datei
+## 2024-12-18 15:22:40 +0000
+c42b2a3 Update readme with latest commits
+## 2024-12-18 16:22:26 +0100
+4357dfc Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:22:22 +0100
+2816e52 Ändere das Format der Commit-Historie im Workflow zur Ausgabe von Datum und Nachricht
+## 2024-12-18 15:21:20 +0000
+240d2c9 Update readme with latest commits
+## 2024-12-18 16:21:06 +0100
+a2349ca Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:21:03 +0100
+ea722e1 Aktualisiere den Workflow zur Generierung und Sortierung der Commit-Historie im Readme
+## 2024-12-18 15:17:59 +0000
+2564dce Update readme with latest commits
+## 2024-12-18 16:17:43 +0100
+d0e30b1 Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:17:39 +0100
+8cdd46d Aktualisiere den Workflow zur Formatierung und Sortierung der Commit-Historie im Readme
+## 2024-12-18 15:15:56 +0000
+8bf037f Update readme with latest commits
+## 2024-12-18 16:15:37 +0100
+362d0cd Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:12:58 +0100
+5cc6062 Ändere Workflow zur Aktualisierung des Changelogs in einen Workflow zur Aktualisierung des Readme
+## 2024-12-18 15:12:35 +0000
+90a43ec Update changelog with latest commits
+## 2024-12-18 16:12:20 +0100
+adb3e8d Merge branch 'main' of https://github.com/isaaclins/pipeline-test
+## 2024-12-18 16:12:17 +0100
+912b46e Ändere das Format der Commit-Historie im Changelog-Workflow
+## 2024-12-18 15:11:15 +0000
+5086684 Update changelog with latest commits
+## 2024-12-18 16:11:02 +0100
+3fef290 Update changelog.md
+## 2024-12-18 15:10:26 +0000
+5018743 Update changelog with latest commits
+## 2024-12-18 16:09:59 +0100
+611b11d Füge Workflow zur automatischen Aktualisierung des Changelogs hinzu
