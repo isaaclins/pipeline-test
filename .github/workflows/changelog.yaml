@@ -1,38 +1,38 @@
 name: Update readme
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    update-readme:
-        runs-on: ubuntu-latest
+  update-readme:
+    runs-on: ubuntu-latest
 
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-          - name: Get commit history
-            run: |
-              git log --pretty=format:"## %ad%n%s %h" --date=iso > commit_history.txt
+      - name: Get commit history
+        run: |
+          git log --pretty=format:"## %ad%n%h %s%n" --date=iso > commit_history.txt
 
-          - name: Sort commits by date
-            run: |
-              awk 'BEGIN { RS=""; FS="\n" } { print $0 | "sort -r" }' commit_history.txt > sorted_commits.txt
+      - name: Sort commits by date
+        run: |
+          awk 'BEGIN { RS=""; FS="\n" } { print $0 | "sort -r" }' commit_history.txt > sorted_commits.txt
 
-          - name: Insert sorted commits into readme
-            run: |
-              head -n 10 readme.md > temp_readme.md
-              echo "" >> temp_readme.md
-              cat sorted_commits.txt >> temp_readme.md
-              tail -n +11 readme.md >> temp_readme.md
-              mv temp_readme.md readme.md
+      - name: Insert sorted commits into readme
+        run: |
+          head -n 10 readme.md > temp_readme.md
+          echo "" >> temp_readme.md
+          cat sorted_commits.txt >> temp_readme.md
+          tail -n +11 readme.md >> temp_readme.md
+          mv temp_readme.md readme.md
 
-          - name: Commit and push changes
-            run: |
-              git config --global user.name 'github-actions[bot]'
-              git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-              git add readme.md
-              git commit -m "Update readme with latest commits"
-              git push
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add readme.md
+          git commit -m "Update readme with latest commits"
+          git push
