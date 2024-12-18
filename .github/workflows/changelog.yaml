@@ -15,24 +15,19 @@ jobs:
 
       - name: Get commit history
         run: |
-          # Format the git log to output commits in the desired format
-          git log --pretty=format:"## %ad%n%h %s%n" --date=iso > commit_history.txt
+          # Format the git log to output commits with the date first, followed by the commit hash and message
+          git log --pretty=format:"%ad %h %s" --date=iso > commit_history.txt
 
       - name: Sort commits by date
         run: |
           # Sort the commits by date in reverse order
           awk 'BEGIN { RS=""; FS="\n" } { print $0 | "sort -r" }' commit_history.txt > sorted_commits.txt
 
-      - name: Reformat commit history
-        run: |
-          # Reorder each commit to match the desired format
-          sed -E 's/(## [^\n]+)\n([a-f0-9]+) (.*)/\1\n\2 \3/' sorted_commits.txt > formatted_commits.txt
-
       - name: Insert sorted commits into readme
         run: |
           head -n 10 readme.md > temp_readme.md
           echo "" >> temp_readme.md
-          cat formatted_commits.txt >> temp_readme.md
+          cat sorted_commits.txt >> temp_readme.md
           tail -n +11 readme.md >> temp_readme.md
           mv temp_readme.md readme.md
 
